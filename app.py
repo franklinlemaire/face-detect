@@ -31,15 +31,20 @@ x2, y2, w2, h2 = faces[1]
 face1 = img[y1:y1+h1, x1:x1+w1]
 face2 = img[y2:y2+h2, x2:x2+w2]
 
+# redimensionner face2 aux dimensions de face1 et vice versa
+face2 = cv.resize(face2, (w1, h1))
+face1 = cv.resize(face1, (w2, h2))
+
 #aux=face1
 # remplacer face2 par face1
 #face1=face2
+img[y1:y1+h1, x1:x1+w1]=face2
 # remplacer face1 par face1
+img[y2:y2+h2, x2:x2+w2]=face1
 #face2=aux
+
+# afficher  l'échange de visage
  
-# affichage des visages
-cv.imshow('face1', face1)
-cv.imshow('face2', face2)
+cv.imshow('echange', img)
 cv.waitKey(0)
-cv.destroyAllWindows()
-   
+cv.destroyAllWindows()   
