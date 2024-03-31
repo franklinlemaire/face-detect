@@ -5,12 +5,28 @@ import cv2 as cv
 face_cascade = cv.CascadeClassifier("Haarcascade_frontalface_default.xml")
 
 # charger les images 
-img = cv.imread('obama.jpg')
+img = cv.imread('dan.jpg')
 gray = cv.cvtColor(img, cv.COLOR_BGR2GRAY) # Transformer l'image en niveau de gris
 
 # exécution de la détection de visage
 # detectMultiscale(image, scale factor, number of neighbors)
 faces = face_cascade.detectMultiScale(gray, 1.1, 3)
 # affichage des visages
+i=0
 for face in faces:
-    print(face)
+    x, y, w, h = face
+    
+    # dessiner le rectangle sur l'image principale
+    cv.rectangle(img, (x, y), (x+w, y+h), (0, 255,0), 2)
+    
+    # extraire les visages de l'image principale
+    # OpenCv et Numpy : y <-> row et x <-> colonne
+    face = img[y:y+h, x:x+w]
+    # afficher face0, face1, face2, etc...
+    cv.imshow('face{}'.format(i), face)
+    i+=1
+    
+# affiche l'image principale
+cv.imshow('image principale', img)
+cv.waitKey(0)
+cv.destroyAllWindows() 
