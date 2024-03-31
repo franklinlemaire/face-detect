@@ -10,7 +10,7 @@ gray = cv.cvtColor(img, cv.COLOR_BGR2GRAY) # Transformer l'image en niveau de gr
 
 # exécution de la détection de visage
 # detectMultiscale(image, scale factor, number of neighbors)
-faces = face_cascade.detectMultiScale(gray, 1.1, 3)
+faces = face_cascade.detectMultiScale(gray, 1.1, 6)
 # affichage des visages
 i=0
 for face in faces:
