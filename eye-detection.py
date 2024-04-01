@@ -5,7 +5,7 @@ import cv2 as cv
 face_cascade = cv.CascadeClassifier("Haarcascade_frontalface_default.xml")
 eye_cascade = cv.CascadeClassifier("Haarcascade_eye.xml")
 # charger les images 
-img = cv.imread('dan.jpg')
+img = cv.imread('obama.jpg')
 gray = cv.cvtColor(img, cv.COLOR_BGR2GRAY) # Transformer l'image en niveau de gris
 
 # exécution de la détection de visage
@@ -27,7 +27,7 @@ for eye in eyes:
     ex, ey, ew, eh = eye
     
     #dessiner les rectangles sur l'image principale
-    cv.rectangle(img, (ex, ey), (ex+ew, ey+eh), (0, 255, 0), 2)
+    cv.rectangle(img, (ex, ey), (ex+ew, ey+eh), (255,255, 255), 2)
     
 # affiche l'image principale
 cv.imshow('image principale', img)
