@@ -11,7 +11,7 @@ import sys
 face_cascade = cv.CascadeClassifier('haarcascade_frontalface_default.xml')
 
 # charger l'image
-img = cv.imread('brad-angelina.jpg')
+img = cv.imread('obama.jpg')
 img_gray=  cv.cvtColor(img, cv.COLOR_BGR2GRAY)
 
 # exécuter la détection de visage
